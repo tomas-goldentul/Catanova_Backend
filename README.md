@@ -19,6 +19,16 @@ El backend está diseñado bajo un modelo **SaaS (Software as a Service)**, perm
 * **Capa de Inteligencia:** Motor que interpreta el historial de ventas para alimentar al chatbot de asesoría.
 * **Gestor de Archivos:** Lógica para la generación y exportación de catálogos dinámicos.
 
+  ---
+## 👥 Miembros del Proyecto
+
+Estamos construyendo el futuro de la gestión textil. Puedes contactarnos a través de nuestros perfiles profesionales:
+
+* **Federico Ajami** - *Backend Developer / Architecture* - [LinkedIn](https://www.linkedin.com/in/link-a-tu-perfil)
+* **Ciro Ranieli** - *Backend Developer / IA Integrations* - [LinkedIn](https://www.linkedin.com/in/link-a-tu-perfil)
+* **Tomas Goldentul** - *Backend Developer / Database* - [LinkedIn](https://www.linkedin.com/in/link-a-tu-perfil)
+* **Maximo Hevia** - *Backend Developer / Security* - [LinkedIn](https://www.linkedin.com/in/link-a-tu-perfil)
+
 ## 🏁 Configuración del Entorno
 
 1. **Instalar dependencias:**
