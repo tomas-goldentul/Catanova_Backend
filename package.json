@@ -12,12 +12,15 @@
   },
   "license": "ISC",
   "author": "Maximo Hevia",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+      "server": "node --watch src/app.js"
+
   },
   "dependencies": {
     "express": "^5.2.1"
   }
+  
 }
