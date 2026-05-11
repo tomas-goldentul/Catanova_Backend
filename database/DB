@@ -1,0 +1,162 @@
+USE [Catanova]
+GO
+/****** Object:  User [alumno]    Script Date: 11/5/2026 10:05:39 ******/
+CREATE USER [alumno] FOR LOGIN [alumno] WITH DEFAULT_SCHEMA=[dbo]
+GO
+/****** Object:  Table [dbo].[Categorias]    Script Date: 11/5/2026 10:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Categorias](
+	[Id_Categoria] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Categorias] PRIMARY KEY CLUSTERED 
+(
+	[Id_Categoria] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DetallePedidos]    Script Date: 11/5/2026 10:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DetallePedidos](
+	[Id_DetallePedido] [int] IDENTITY(1,1) NOT NULL,
+	[Cantidad] [int] NOT NULL,
+	[Precio_Total] [decimal](10, 2) NOT NULL,
+	[Id_Pedido] [int] NOT NULL,
+	[Id_Producto] [int] NOT NULL,
+ CONSTRAINT [PK_DetallePedidos] PRIMARY KEY CLUSTERED 
+(
+	[Id_DetallePedido] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Duenios]    Script Date: 11/5/2026 10:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Duenios](
+	[Id_Duenio] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Apellido] [varchar](50) NOT NULL,
+	[Email] [varchar](100) NOT NULL,
+	[Telefono] [varchar](20) NOT NULL,
+ CONSTRAINT [PK_Duenios] PRIMARY KEY CLUSTERED 
+(
+	[Id_Duenio] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Pedidos]    Script Date: 11/5/2026 10:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Pedidos](
+	[Id_Pedido] [int] IDENTITY(1,1) NOT NULL,
+	[Fecha] [date] NOT NULL,
+	[Direccion] [varchar](100) NOT NULL,
+	[Id_Usuario] [int] NOT NULL,
+	[Entregado] [bit] NOT NULL,
+	[Metodo_Pago] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Pedidos] PRIMARY KEY CLUSTERED 
+(
+	[Id_Pedido] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Productos]    Script Date: 11/5/2026 10:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Productos](
+	[Id_Producto] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Precio] [decimal](10, 2) NOT NULL,
+	[Stock] [int] NOT NULL,
+	[Imagen] [varchar](255) NOT NULL,
+	[Activo] [bit] NOT NULL,
+	[Id_Tienda] [int] NOT NULL,
+ CONSTRAINT [PK_Productos] PRIMARY KEY CLUSTERED 
+(
+	[Id_Producto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ProductosXCategorias]    Script Date: 11/5/2026 10:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ProductosXCategorias](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Producto] [int] NOT NULL,
+	[Id_Categoria] [int] NOT NULL,
+ CONSTRAINT [PK_ProductosXCategorias] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Provincias]    Script Date: 11/5/2026 10:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Provincias](
+	[Id_Provincia] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Provincias] PRIMARY KEY CLUSTERED 
+(
+	[Id_Provincia] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tiendas]    Script Date: 11/5/2026 10:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tiendas](
+	[Id_Tienda] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Email] [varchar](100) NOT NULL,
+	[Slogan] [varchar](150) NOT NULL,
+	[Telefono] [varchar](20) NOT NULL,
+	[Direccion] [varchar](100) NOT NULL,
+	[Fecha_Creacion] [date] NOT NULL,
+	[Id_Dueño] [int] NOT NULL,
+	[Id_Provincia] [int] NOT NULL,
+	[Color_Primario] [varchar](7) NOT NULL,
+	[Color_Secundario] [varchar](7) NOT NULL,
+	[Color_Terciario] [varchar](7) NOT NULL,
+ CONSTRAINT [PK_Tiendas] PRIMARY KEY CLUSTERED 
+(
+	[Id_Tienda] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 11/5/2026 10:05:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuarios](
+	[Id_Usuario] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Apellido] [varchar](50) NOT NULL,
+	[Email] [varchar](50) NOT NULL,
+	[Telefono] [varchar](20) NOT NULL,
+	[Foto_Perfil] [varchar](255) NOT NULL,
+	[Activo] [bit] NOT NULL,
+ CONSTRAINT [PK_Usuarios] PRIMARY KEY CLUSTERED 
+(
+	[Id_Usuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
