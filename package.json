@@ -1,0 +1,20 @@
+{
+  "name": "catanova-backend",
+  "version": "1.0.0",
+  "description": "La carpeta Backend de el proyecto Catanova, mas informacion en el github",
+  "homepage": "https://github.com/tomas-goldentul/Catanova-Backend#readme",
+  "bugs": {
+    "url": "https://github.com/tomas-goldentul/Catanova-Backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomas-goldentul/Catanova-Backend.git"
+  },
+  "license": "ISC",
+  "author": "Maximo Hevia",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
