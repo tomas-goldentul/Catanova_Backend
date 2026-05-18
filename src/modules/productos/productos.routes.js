@@ -1,11 +1,10 @@
 import express from "express";
-import { getProductos, createProducto } from "./productos.controller.js";
-import validateProducto from "./productos.middleware.js";
+import { getProductos, insertProducto } from "./productos.controller.js";
 
 const router = express.Router();
 
-router.get("/", getProductos); 
+router.get("/", getProductos);
+router.get("/insert", insertProducto);
 
-router.post("/", validateProducto, createProducto);
 
 export default router;

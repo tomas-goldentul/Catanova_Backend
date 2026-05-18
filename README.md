@@ -33,4 +33,7 @@ Estamos construyendo el futuro de la gestión textil. Puedes contactarnos a trav
 
 1. **Instalar dependencias:**
    ```bash
-   npm install
+   npm i
+   npm i express
+   npm i cors
+   node --watch src/app.js
